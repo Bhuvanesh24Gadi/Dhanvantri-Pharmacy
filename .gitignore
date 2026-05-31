@@ -1,0 +1,12 @@
+# Node
+node_modules/
+dist/
+**/.env
+
+# Python/Django
+__pycache__/
+*.pyc
+db.sqlite3
+media/
+venv/
+env/
