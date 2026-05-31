@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 from datetime import timedelta
+import dj_database_url
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -86,16 +87,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # backend/core/settings.py
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dhanvantri_db',       # The name of the DB you just created
-        'USER': 'postgres',            # Your Postgres username (default is usually 'postgres')
-        'PASSWORD': 'Gadi@2224',   # ⚠️ CHANGE THIS to your actual Postgres password
-        'HOST': 'localhost',
-        'PORT': '5432',                # Default Postgres port
-    }
+    'default': dj_database_url.config(
+        # This tells Django to use SQLite locally by default, 
+        # BUT it will automatically switch to PostgreSQL in the cloud!
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        conn_max_age=600
+    )
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
