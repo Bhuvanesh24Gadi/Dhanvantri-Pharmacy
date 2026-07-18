@@ -11,7 +11,7 @@ export default function Inventory() {
   // We put this in a separate function so the Modal can trigger it to refresh the table
   const fetchMedicines = () => {
     setLoading(true);
-    api.get('pharmacy/medicines/')
+    api.get('api/pharmacy/medicines/')
       .then(response => {
         setMedicines(response.data);
         setLoading(false);

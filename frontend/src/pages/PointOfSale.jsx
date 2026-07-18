@@ -20,7 +20,7 @@ export default function PointOfSale() {
 
     const fetchInventory = async () => {
         try {
-            const res = await api.get('pharmacy/medicines/');
+            const res = await api.get('api/pharmacy/medicines/');
             setMedicines(res.data);
         } catch (error) {
             console.error("Failed to fetch medicines", error);
@@ -88,7 +88,7 @@ export default function PointOfSale() {
         console.log("SENDING THIS PAYLOAD:", JSON.stringify(payload, null, 2));
 
         try {
-            await api.post('pharmacy/sales/', payload);
+            await api.post('api/pharmacy/sales/', payload);
             
             setSuccessMsg('Transaction Successful! Stock deducted.');
             setCart([]);

@@ -49,7 +49,7 @@ export default function AIScanner() {
         formData.append('file', file);
 
         try {
-            const response = await api.post('pharmacy/digitize/', formData, {
+            const response = await api.post('api/pharmacy/digitize/', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 

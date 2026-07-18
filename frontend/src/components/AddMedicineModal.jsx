@@ -30,8 +30,8 @@ export default function AddMedicineModal({ isOpen, onClose, onMedicineAdded }) {
     const fetchDropdownData = async () => {
         try {
             const [catRes, mfgRes] = await Promise.all([
-                api.get('pharmacy/categories/'),
-                api.get('pharmacy/manufacturers/')
+                api.get('api/pharmacy/categories/'),
+                api.get('api/pharmacy/manufacturers/')
             ]);
             setCategories(catRes.data);
             setManufacturers(mfgRes.data);
@@ -49,7 +49,7 @@ export default function AddMedicineModal({ isOpen, onClose, onMedicineAdded }) {
         setLoading(true);
         try {
             // Send the data to your new Enterprise API
-            await api.post('pharmacy/medicines/', formData);
+            await api.post('api/pharmacy/medicines/', formData);
             onMedicineAdded(); // Tell the parent page to refresh the table
             onClose();         // Close the modal
         } catch (error) {
