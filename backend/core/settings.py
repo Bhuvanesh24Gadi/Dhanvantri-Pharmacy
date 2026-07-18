@@ -25,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ahr!9hl%5vlc%$5+hypzu^v84_i33xr&30)!&29uc$ifncomsu'
+SECRET_KEY = 'YOUR_SECRET'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'dhanvantri-backend-3par.onrender.com']
 
@@ -129,13 +129,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173"
 ]
 
-GOOGLE_API_KEY ="Insert you api key here"
+GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 
 #JWT authentication settings
 REST_FRAMEWORK = {

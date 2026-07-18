@@ -20,6 +20,11 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from django.http import JsonResponse
+
+def api_root(request):
+    return JsonResponse({"message": "Dhanvantri Pharmacy API is running smoothly!"})
+
 
 urlpatterns = [
     # 1. Django Admin Interface (http://127.0.0.1:8000/admin/)
