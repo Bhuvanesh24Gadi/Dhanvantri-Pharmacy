@@ -133,7 +133,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "http://127.0.0.1:5173"
+    "http://127.0.0.1:5173",
+    "https://dhanvantri-pharmacy.onrender.com",
 ]
 
 GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
